@@ -1,0 +1,6 @@
+[workspace]
+members = [
+	"capsule-ffi",
+	"capsule-macros",
+	"capsule",
+]
