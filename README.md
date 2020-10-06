@@ -19,7 +19,7 @@ The second (nested) workspace is in `examples` which contains the `toy-onvm` pro
 
 ## Running
 
-Running `cargo buil | run` inside `examples`, should also run the equivalent `cargo build` in the top level workspace.
+Running `cargo build | run` inside `examples`, should also run the equivalent `cargo build` in the top level workspace.
 
 ```bash
 cd examples
