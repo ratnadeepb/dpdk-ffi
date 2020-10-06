@@ -51,10 +51,15 @@ impl Mempool {
     /// # Errors
     ///
     /// If allocation fails, then `DpdkError` is returned.
-    pub fn new(capacity: usize, cache_size: usize, socket_id: SocketId) -> Fallible<Self> {
-        static MEMPOOL_COUNT: AtomicUsize = AtomicUsize::new(0);
-        let n = MEMPOOL_COUNT.fetch_add(1, Ordering::Relaxed);
-        let name = format!("mempool{}", n);
+    pub fn new(
+        name: String,
+        capacity: usize,
+        cache_size: usize,
+        socket_id: SocketId,
+    ) -> Fallible<Self> {
+        // static MEMPOOL_COUNT: AtomicUsize = AtomicUsize::new(0);
+        // let n = MEMPOOL_COUNT.fetch_add(1, Ordering::Relaxed);
+        // let name = format!("mempool{}", n);
 
         let raw = unsafe {
             ffi::rte_pktmbuf_pool_create(
