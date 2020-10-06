@@ -8,7 +8,7 @@ use super::SocketId;
 use crate::dpdk::DpdkError;
 use crate::ffi::{self, AsStr, ToCString, ToResult};
 use crate::{debug, info};
-use failure::{Fail, Fallible};
+use failure::Fallible;
 // use std::cell::Cell;
 // use std::collections::HashMap;
 use std::fmt;
@@ -55,12 +55,6 @@ impl Memzone {
 	pub fn raw(&self) -> &ffi::rte_memzone {
 		unsafe { &*self.raw }
 	}
-
-	// /// Returns the raw struct needed for FFI calls.
-	// #[inline]
-	// pub fn raw_mut(&mut self) -> &mut ffi::rte_memzone {
-	// 	unsafe { &mut *self.raw }
-	// }
 
 	/// Returns the name of the `Mempool`.
 	#[inline]

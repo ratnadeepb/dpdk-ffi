@@ -19,6 +19,7 @@
 mod kni;
 mod mbuf;
 mod mempool;
+mod memring;
 mod memzone;
 mod port;
 #[cfg(feature = "metrics")]
@@ -29,6 +30,8 @@ pub use self::kni::*;
 #[allow(unreachable_pub)]
 pub use self::mbuf::*;
 pub use self::mempool::*;
+#[allow(unreachable_pub)]
+pub use self::memring::*;
 pub use self::memzone::*;
 #[allow(unreachable_pub)]
 pub use self::port::*;
