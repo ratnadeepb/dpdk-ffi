@@ -139,7 +139,9 @@ mod pcap;
 #[cfg_attr(docsrs, doc(cfg(feature = "testils")))]
 pub mod testils;
 
-pub use self::dpdk::{KniRx, KniTxQueue, Mbuf, PortQueue, SizeOf};
+pub use self::dpdk::{
+    KniRx, KniTxQueue, Mbuf, Mempool, Memzone, PortQueue, Ring, SizeOf, SocketId,
+};
 // pub use self::runtime::{Runtime, UnixSignal};
 pub use capsule_macros::SizeOf;
 #[cfg(any(test, feature = "testils"))]
