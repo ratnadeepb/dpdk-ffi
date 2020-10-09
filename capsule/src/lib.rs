@@ -140,7 +140,7 @@ mod pcap;
 pub mod testils;
 
 pub use self::dpdk::{
-    KniRx, KniTxQueue, Mbuf, Mempool, Memzone, PortQueue, Ring, SizeOf, SocketId,
+    KniRx, KniTxQueue, Mbuf, Mempool, Memzone, PortBuilder, PortQueue, Ring, SizeOf, SocketId,
 };
 // pub use self::runtime::{Runtime, UnixSignal};
 pub use capsule_macros::SizeOf;
