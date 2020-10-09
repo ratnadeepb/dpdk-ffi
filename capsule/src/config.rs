@@ -201,7 +201,7 @@ impl RuntimeConfig {
     }
 
     /// Extracts the EAL arguments from runtime settings.
-    pub(crate) fn to_eal_args(&self) -> Vec<String> {
+    pub fn to_eal_args(&self) -> Vec<String> {
         let mut eal_args = vec![];
 
         // adds the app name
@@ -245,8 +245,23 @@ impl RuntimeConfig {
 
         // limits the EAL to only the master core. actual threads are
         // managed by the runtime not the EAL.
+        // changed by Deep
+        let mut cores: String = "".to_string();
+        self.ports.iter().for_each(|port| {
+            for core in port.cores.clone() {
+                let c = core.raw().to_string();
+                if !cores.contains(&c) {
+                    if cores.is_empty() {
+                        cores = c;
+                    } else {
+                        cores = format!("{}, {}", cores, c);
+                    }
+                }
+            }
+        });
         eal_args.push("-l".to_owned());
-        eal_args.push(self.master_core.raw().to_string());
+        // eal_args.push(self.master_core.raw().to_string());
+        eal_args.push(cores);
 
         // adds additional DPDK args
         if let Some(args) = &self.dpdk_args {
