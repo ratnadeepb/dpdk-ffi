@@ -1,4 +1,5 @@
 [workspace]
 members = [
-        "toy-onvm",
+        "basic-demo",
+        "mp-server",
 ]

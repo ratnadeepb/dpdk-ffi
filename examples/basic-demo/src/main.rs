@@ -3,13 +3,13 @@
  * Created by Ratnadeep Bhattacharya
  */
 
-pub mod constants;
-
 use capsule::dpdk::{eal_cleanup, eal_init, Mbuf, Mempool, Memzone, Ring, SocketId};
 use capsule_ffi::rte_eth_dev_count_avail;
 use std::mem;
 
-use constants::{MAX_NFS, MZ_NF_INFO, MZ_PORT_INFO};
+pub const MZ_NF_INFO: &str = "MProc_nf_init_cfg";
+pub const MZ_PORT_INFO: &str = "MProc_port_info";
+pub const MAX_NFS: usize = 128;
 
 fn main() {
     let args = std::env::args().collect::<Vec<String>>();
