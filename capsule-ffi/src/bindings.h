@@ -120,3 +120,5 @@ int _rte_ring_dequeue(struct rte_ring *r, void **obj_p);
 /* Enqueue several objects on a ring. */
 unsigned int _rte_ring_enqueue_bulk(struct rte_ring *r, void *const *obj_table,
                                    unsigned int n, unsigned int *free_space);
+
+void stop_and_close_ports();

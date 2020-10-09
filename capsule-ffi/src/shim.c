@@ -143,3 +143,15 @@ _rte_ring_enqueue_bulk(struct rte_ring *r, void *const *obj_table,
 {
         return rte_ring_enqueue_bulk(r, obj_table, n, free_space);
 }
+
+void
+stop_and_close_ports()
+{
+        uint16_t port_id = 0;
+        RTE_ETH_FOREACH_DEV(port_id)
+        {
+                rte_eth_dev_stop(port_id);
+                rte_eth_dev_close(port_id);
+        }
+        exit(0);
+}
