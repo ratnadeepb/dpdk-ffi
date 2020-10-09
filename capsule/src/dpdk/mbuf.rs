@@ -173,13 +173,13 @@ impl Mbuf {
 
     /// Returns the raw struct needed for FFI calls.
     #[inline]
-    fn raw(&self) -> &ffi::rte_mbuf {
+    pub fn raw(&self) -> &ffi::rte_mbuf {
         unsafe { self.inner.ptr().as_ref() }
     }
 
     /// Returns the raw struct needed for FFI calls.
     #[inline]
-    fn raw_mut(&mut self) -> &mut ffi::rte_mbuf {
+    pub fn raw_mut(&mut self) -> &mut ffi::rte_mbuf {
         unsafe { self.inner.ptr_mut().as_mut() }
     }
 
