@@ -95,6 +95,7 @@ impl TxQueueIndex {
 }
 
 /// Either queue type (receive or transmit) with associated index.
+#[allow(missing_debug_implementations)]
 #[allow(dead_code)]
 pub enum RxTxQueue {
     Rx(RxQueueIndex),
@@ -375,6 +376,7 @@ impl Drop for Port {
 }
 
 /// Builds a port from the configuration values.
+#[allow(missing_debug_implementations)]
 pub struct PortBuilder<'a> {
     name: String,
     device: String,
@@ -497,12 +499,7 @@ impl<'a> PortBuilder<'a> {
 
     /// Creates the `Port`.
     #[allow(clippy::cognitive_complexity)]
-    pub fn finish(
-        &mut self,
-        promiscuous: bool,
-        multicast: bool,
-        with_kni: bool,
-    ) -> Fallible<Port> {
+    pub fn finish(&mut self, promiscuous: bool, multicast: bool, with_kni: bool) -> Fallible<Port> {
         let len = self.cores.len() as u16;
         let mut conf = ffi::rte_eth_conf::default();
 
