@@ -1,0 +1,20 @@
+app_name = "mp_server" # name of the app
+app_group = "multi_process" # both primary and secondary process should be part of this group
+master_core = 0
+# duration = 5
+
+[mempool]
+    capacity = 65535
+    cache_size = 256
+
+[[ports]]
+    name = "eth1"
+    device = "0000:07:00.0"
+    promiscuous = true
+    cores = [0, 1]
+
+[[ports]]
+    name = "eth2"
+    device = "0000:07:00.1"
+    promiscuous = true
+    cores = [0, 1]
