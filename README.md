@@ -24,7 +24,7 @@ Running `cargo build | run` inside `examples`, should also run the equivalent `c
 ```bash
 cd examples
 cargo build
-sudo ./target/debug/toy-onvm
+sudo ./target/debug/basic-demo
 ```
 
 This will create mempools, zones and rings and print out information and status of the same.
